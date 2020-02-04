@@ -1,0 +1,175 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5"><title>Springboot笔记 | K's Blog</title><meta name="description" content="Springboot笔记"><meta name="author" content="PHI6kai"><meta name="copyright" content="PHI6kai"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin><link rel="preconnect" href="//busuanzi.ibruce.info"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Springboot笔记"><meta name="twitter:description" content="Springboot笔记"><meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/top_img/default.png"><meta property="og:type" content="article"><meta property="og:title" content="Springboot笔记"><meta property="og:url" content="http://yoursite.com/2020/02/04/Springboot%E7%AC%94%E8%AE%B0/"><meta property="og:site_name" content="K's Blog"><meta property="og:description" content="Springboot笔记"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/top_img/default.png"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>const autoChangeMode = 'false'
+var t = Cookies.get("theme");
+if (autoChangeMode == '1'){
+const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+if (t === undefined){
+  if (isLightMode) activateLightMode()
+  else if (isDarkMode) activateDarkMode()
+  else if (isNotSpecified || hasNoSupport){
+    console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+    now = new Date();
+    hour = now.getHours();
+    isNight = hour < 6 || hour >= 18
+    isNight ? activateDarkMode() : activateLightMode()
+}
+} else if (t == 'light') activateLightMode()
+else activateDarkMode()
+
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="http://yoursite.com/2020/02/04/Springboot%E7%AC%94%E8%AE%B0/"><link rel="next" title="LeeCode刷题(1) 两数之和" href="http://yoursite.com/2020/01/27/LeeCode%E5%88%B7%E9%A2%98(%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C)/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://PHI6kai.github.io/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    title: 'Snackbar.bookmark.title',
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime_unit: 'days',
+  runtime: true,
+  copyright: {"languages":{"author":"Author: PHI6kai","link":"Link: http://yoursite.com/2020/02/04/Springboot%E7%AC%94%E8%AE%B0/","source":"Source: K's Blog","info":"Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source."}},
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  baiduPush: false,
+  isHome: false,
+  isPost: true
+  
+}</script><meta name="generator" content="Hexo 4.2.0"></head><body><header> <div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">K's Blog</a></span><span class="toggle-menu pull_right close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div></div></span></div></header><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">4</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div></div></div><div id="mobile-sidebar-toc"><div class="toc_mobile_headline">Catalog</div><div class="sidebar-toc__content"><ol class="toc_mobile_items"><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#Springboot笔记"><span class="toc_mobile_items-number">1.</span> <span class="toc_mobile_items-text">Springboot笔记</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#1-Springboot对静态资源的映射规则"><span class="toc_mobile_items-number">1.1.</span> <span class="toc_mobile_items-text">1.Springboot对静态资源的映射规则</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#模板引擎"><span class="toc_mobile_items-number">1.2.</span> <span class="toc_mobile_items-text">模板引擎</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#1-引入thymeleaf"><span class="toc_mobile_items-number">1.2.1.</span> <span class="toc_mobile_items-text">1.引入thymeleaf</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#2-Thymeleaf的使用及语法"><span class="toc_mobile_items-number">1.2.2.</span> <span class="toc_mobile_items-text">2.Thymeleaf的使用及语法</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#Thymeleaf语法规则"><span class="toc_mobile_items-number">1.2.3.</span> <span class="toc_mobile_items-text">Thymeleaf语法规则</span></a></li></ol></li></ol></li></ol></div></div></div><div id="body-wrap"><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true">     </i><div class="auto_open" id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Springboot笔记"><span class="toc-number">1.</span> <span class="toc-text">Springboot笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Springboot对静态资源的映射规则"><span class="toc-number">1.1.</span> <span class="toc-text">1.Springboot对静态资源的映射规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模板引擎"><span class="toc-number">1.2.</span> <span class="toc-text">模板引擎</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-引入thymeleaf"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.引入thymeleaf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Thymeleaf的使用及语法"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.Thymeleaf的使用及语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Thymeleaf语法规则"><span class="toc-number">1.2.3.</span> <span class="toc-text">Thymeleaf语法规则</span></a></li></ol></li></ol></li></ol></div></div></div><main id="content-outer"><div id="top-container" style="background-image: url(https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/top_img/default.png)"><div id="post-info"><div id="post-title"><div class="posttitle">Springboot笔记</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> Created 2020-02-04<span class="post-meta__separator">|</span><i class="fa fa-history fa-fw" aria-hidden="true"></i> Updated 2020-02-04</time><div class="post-meta-wordcount"><div class="post-meta-pv-cv"><span><i class="fa fa-eye post-meta__icon fa-fw" aria-hidden="true"> </i>Post View:</span><span id="busuanzi_value_page_pv"></span></div></div></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><h1 id="Springboot笔记"><a href="#Springboot笔记" class="headerlink" title="Springboot笔记"></a>Springboot笔记</h1><h2 id="1-Springboot对静态资源的映射规则"><a href="#1-Springboot对静态资源的映射规则" class="headerlink" title="1.Springboot对静态资源的映射规则"></a>1.Springboot对静态资源的映射规则</h2><p>首先让我们来看看SpringmvcAuto**里面的源码</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public void addResourceHandlers(ResourceHandlerRegistry registry) &#123;</span><br><span class="line">            if (!this.resourceProperties.isAddMappings()) &#123;</span><br><span class="line">                logger.debug(&quot;Default resource handling disabled&quot;);</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                Duration cachePeriod &#x3D; this.resourceProperties.getCache().getPeriod();</span><br><span class="line">                CacheControl cacheControl &#x3D; this.resourceProperties.getCache().getCachecontrol().toHttpCacheControl();</span><br><span class="line">                if (!registry.hasMappingForPattern(&quot;&#x2F;webjars&#x2F;**&quot;)) &#123;</span><br><span class="line">                    this.customizeResourceHandlerRegistration(registry.addResourceHandler(new String[]&#123;&quot;&#x2F;webjars&#x2F;**&quot;&#125;).addResourceLocations(new String[]&#123;&quot;classpath:&#x2F;META-INF&#x2F;resources&#x2F;webjars&#x2F;&quot;&#125;).setCachePeriod(this.getSeconds(cachePeriod)).setCacheControl(cacheControl));</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                String staticPathPattern &#x3D; this.mvcProperties.getStaticPathPattern();</span><br><span class="line">                if (!registry.hasMappingForPattern(staticPathPattern)) &#123;</span><br><span class="line">                    this.customizeResourceHandlerRegistration(registry.addResourceHandler(new String[]&#123;staticPathPattern&#125;).addResourceLocations(WebMvcAutoConfiguration.getResourceLocations(this.resourceProperties.getStaticLocations())).setCachePeriod(this.getSeconds(cachePeriod)).setCacheControl(cacheControl));</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></div>
+<p>1.所有/webjars/**，都去classpath:/META-INF/resources/webjars/找资源。</p>
+<ul>
+<li><p>webjars：以jar包的方式引入静态资源。</p>
+</li>
+<li><p>具体的包之间的依赖方式，请参考<a href="https://www.webjars.org/" target="_blank" rel="noopener" title="官网">官网</a>进行导入。</p>
+</li>
+</ul>
+<p><a href="/images/%E6%90%9C%E7%8B%97%E6%88%AA%E5%9B%BE20200204104940.png" data-fancybox="group" data-caption="images" class="fancybox"><img alt="images" title="images" data-src="/images/%E6%90%9C%E7%8B%97%E6%88%AA%E5%9B%BE20200204104940.png" class="lazyload"></a></p>
+<p>引入jquery-webjar包</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.webjars&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;jquery&lt;&#x2F;artifactId&gt;</span><br><span class="line">            &lt;version&gt;3.3.1&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>2.“/**”访问当前项目的任何资源</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;classpath:&#x2F;META‐INF&#x2F;resources&#x2F;&quot;,</span><br><span class="line">&quot;classpath:&#x2F;resources&#x2F;&quot;,</span><br><span class="line">&quot;classpath:&#x2F;static&#x2F;&quot;,</span><br><span class="line">&quot;classpath:&#x2F;public&#x2F;&quot;</span><br><span class="line">&quot;&#x2F;&quot;：当前项目的根路径</span><br></pre></td></tr></table></figure></div>
+
+<p>改变默认静态资源文件夹，需要在application.properties下加入</p>
+<blockquote>
+<p>spring.resources.static-location=classpath:/文件夹名/</p>
+</blockquote>
+<h2 id="模板引擎"><a href="#模板引擎" class="headerlink" title="模板引擎"></a>模板引擎</h2><p>现在的有 JSP、Velocity、Freemaker、Thymeleaf。<br>Springboot推荐Thymeleaf，因为语法更简单，功能更强大。</p>
+<h3 id="1-引入thymeleaf"><a href="#1-引入thymeleaf" class="headerlink" title="1.引入thymeleaf"></a>1.引入thymeleaf</h3><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;        </span><br><span class="line">&lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;            </span><br><span class="line">&lt;artifactId&gt;spring‐boot‐starter‐thymeleaf&lt;&#x2F;artifactId&gt;            </span><br><span class="line">           2.1.6  </span><br><span class="line">&lt;&#x2F;dependency&gt;        </span><br><span class="line">切换thymeleaf版本</span><br><span class="line">&lt;properties&gt;</span><br><span class="line">&lt;thymeleaf.version&gt;3.0.9.RELEASE&lt;&#x2F;thymeleaf.version&gt;        </span><br><span class="line">&lt;!‐‐ 布局功能的支持程序  thymeleaf3主程序  layout2以上版本 ‐‐&gt;        </span><br><span class="line">&lt;!‐‐ thymeleaf2   layout1‐‐&gt;        </span><br><span class="line">&lt;thymeleaf‐layout‐dialect.version&gt;2.2.2&lt;&#x2F;thymeleaf‐layout‐dialect.version&gt;        </span><br><span class="line">  &lt;&#x2F;properties&gt;</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="2-Thymeleaf的使用及语法"><a href="#2-Thymeleaf的使用及语法" class="headerlink" title="2.Thymeleaf的使用及语法"></a>2.Thymeleaf的使用及语法</h3><p>首先还是让我们来看看源码</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@ConfigurationProperties(prefix &#x3D; &quot;spring.thymeleaf&quot;)</span><br><span class="line">public class ThymeleafProperties &#123;</span><br><span class="line">private static final Charset DEFAULT_ENCODING &#x3D; Charset.forName(&quot;UTF‐8&quot;);    </span><br><span class="line">private static final MimeType DEFAULT_CONTENT_TYPE &#x3D; MimeType.valueOf(&quot;text&#x2F;html&quot;);    </span><br><span class="line">public static final String DEFAULT_PREFIX &#x3D; &quot;classpath:&#x2F;templates&#x2F;&quot;;    </span><br><span class="line">public static final String DEFAULT_SUFFIX &#x3D; &quot;.html&quot;;</span><br></pre></td></tr></table></figure></div>
+
+<p>意思是只要我们把HTML页面放在classpath:/templates/下，thymeleaf就可以自动渲染。</p>
+<ul>
+<li>在这里thymeleaf默认版本是2.1.1，需要升级使用，但依赖升级一直报错，查了网上的资料基本就是让删除升级那几行代码，没什么用。后来发现只需要将升级的版本提高到3.0+即可。</li>
+</ul>
+<p>代码如下</p>
+<blockquote>
+<p>&lt;thymeleaf.version&gt;3.0.11.RELEASE&lt;/thymeleaf.version&gt;<br>&lt;thymeleaf-layout-dialect.version&gt;2.1.1&lt;/thymeleaf-layout-dialect.version&gt;</p>
+</blockquote>
+<p>另外要注意同时在properties内修改</p>
+<blockquote>
+<p>spring.thymeleaf.mode=HTML</p>
+</blockquote>
+<p><strong>使用方式：</strong><br>1.导入thymeleaf的名称空间</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;html lang&#x3D;&quot;en&quot; xmlns:th&#x3D;&quot;http:&#x2F;&#x2F;www.thymeleaf.org&quot;&gt;</span><br></pre></td></tr></table></figure></div>
+<p>在html文件头部导入，只有导入命名空间才会有提示，如果你记得全，也可以不加。</p>
+<p>2.thymeleaf语法的使用<br>咱们先看一段简单的代码引入</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot; xmlns:th&#x3D;&quot;http:&#x2F;&#x2F;www.thymeleaf.org&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF‐8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;h1&gt;成功！&lt;&#x2F;h1&gt;</span><br><span class="line">    &lt;!‐‐th:text 将div里面的文本内容设置为 ‐‐&gt;</span><br><span class="line">    &lt;div th:text&#x3D;&quot;$&#123;hello&#125;&quot;&gt;这是显示欢迎信息&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="Thymeleaf语法规则"><a href="#Thymeleaf语法规则" class="headerlink" title="Thymeleaf语法规则"></a>Thymeleaf语法规则</h3><ol>
+<li>th:text: 改变当前元素里面的文本内容；</li>
+</ol>
+<p>格式为：</p>
+<ul>
+<li>th: 任意html属性；来替换原生属性的值</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">Order</th>
+<th align="left">Feature</th>
+<th align="center">Attributes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">片段包含:jsp:include</td>
+<td align="center">th:insert th:replace</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">遍历:c:forEach</td>
+<td align="center">th:each</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">条件判断:c:if</td>
+<td align="center">th:if th:unless th:switch th:case</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">声明变量:c:set</td>
+<td align="center">th:object th:with</td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left">任意属性修改，支持prepend，append</td>
+<td align="center">th:attr th:attrperend th:attrappend</td>
+</tr>
+<tr>
+<td align="left">7</td>
+<td align="left">修改指定属性默认值</td>
+<td align="center">th:value th:href th:src</td>
+</tr>
+<tr>
+<td align="left">8</td>
+<td align="left">修改标签体内容</td>
+<td align="center">th:text th:utext</td>
+</tr>
+<tr>
+<td align="left">9</td>
+<td align="left">声明片段</td>
+<td align="center">th:fragment th:remove</td>
+</tr>
+</tbody></table>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">PHI6kai</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://yoursite.com/2020/02/04/Springboot%E7%AC%94%E8%AE%B0/">http://yoursite.com/2020/02/04/Springboot%E7%AC%94%E8%AE%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/top_img/default.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button button--primary button--animated"> <i class="fa fa-qrcode"></i> Donate<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="lazyload post-qr-code__img" src="/img" alt="微信"><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="lazyload post-qr-code__img" src="/img" alt="支付寶"><div class="post-qr-code__desc">支付寶</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="next-post pull-full"><a href="/2020/01/27/LeeCode%E5%88%B7%E9%A2%98(%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C)/"><img class="next_cover lazyload" data-src="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/top_img/default.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Next Post</div><div class="next_info"><span>LeeCode刷题(1) 两数之和</span></div></a></div></nav></div></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2020 By PHI6kai</div><div class="framework-info"><span>Driven </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="Read Mode"></i><i class="fa fa-plus" id="font_plus" title="Increase font size"></i><i class="fa fa-minus" id="font_minus" title="Decrease font size"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="Traditional Chinese and Simplified Chinese Conversion" target="_self">简</a><i class="darkmode fa fa-moon-o" id="darkmode" title="Dark Mode"></i></div><div id="rightside-config-show"><div id="rightside_config" title="Setting"><i class="fa fa-cog" aria-hidden="true"></i></div><i class="fa fa-list-ul close" id="mobile-toc-button" title="Table of Contents" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="Back to top" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/activate-power-mode/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true; 
+document.body.addEventListener('input', POWERMODE);
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script></body></html>
